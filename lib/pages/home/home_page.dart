@@ -7,9 +7,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).primaryColor,
+    
+    return Scaffold(
+      appBar: AppBar(
+        
+        backgroundColor: Colors.red,
+       title: Text("OLX"),
+      ),
+      drawer: Drawer(),
     );
   }
 }

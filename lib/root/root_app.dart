@@ -1,4 +1,5 @@
-import 'package:e_comerce/pages/home_page.dart';
+import 'package:e_comerce/pages/base/base_screen.dart';
+import 'package:e_comerce/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 
 class RootApp extends StatelessWidget {
@@ -22,7 +23,7 @@ class RootApp extends StatelessWidget {
           ),
         ),
       ),
-      home: HomePage(),
+      home: BaseScreen(),
     );
   }
 }
