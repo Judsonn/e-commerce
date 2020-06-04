@@ -1,3 +1,4 @@
+import 'package:e_comerce/common/custom_drawer/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -12,11 +13,14 @@ class _HomePageState extends State<HomePage> {
     
     return Scaffold(
       appBar: AppBar(
-        
-        backgroundColor: Colors.red,
-       title: Text("OLX"),
+        backgroundColor: Theme.of(context).primaryColor,
+       title: Text("E-commerce", style: TextStyle(
+         fontSize: 20,
+         color: Colors.white,
+         fontWeight: FontWeight.bold
+       ),),
       ),
-      drawer: Drawer(),
+      drawer: CustomDrawer(),
     );
   }
 }
