@@ -1,6 +1,7 @@
 import 'package:e_comerce/bloc/home_page_bloc.dart';
 import 'package:e_comerce/common/custom_drawer/custom_drawer.dart';
 import 'package:e_comerce/pages/home/widgets/search_dialog.dart';
+import 'package:e_comerce/pages/home/widgets/top_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -55,7 +56,7 @@ void didChangeDependencies() {
                 //containe é pra definir o damanho do local clicavel, ele usa o constrains para 
                 //aproveitar o tamanho máximo clicavel
                   return Container(
-                    child: Text(snapshot.data),
+                    child: Text(snapshot.data, style: TextStyle(color: Colors.black45, fontWeight: FontWeight.bold, fontSize: 20),),
                     width: constraints.biggest.width,
                   );
               } 
@@ -89,6 +90,11 @@ void didChangeDependencies() {
          ]
       ),
       drawer: CustomDrawer(),
+      body: Column(
+        children: <Widget>[
+        TopBar(),
+      ]
+      ),
     );
   }
 }
