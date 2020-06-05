@@ -20,14 +20,14 @@ class RootApp extends StatelessWidget {
           inputDecorationTheme: InputDecorationTheme(
             fillColor: Colors.white,
             focusColor: Colors.white, 
-            contentPadding: EdgeInsets.all(8),
+            contentPadding: EdgeInsets.all(20),
             filled: true,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(style: BorderStyle.none),
+              borderSide: BorderSide(style: BorderStyle.solid),
             ),
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
             ),
           ),
         ),
