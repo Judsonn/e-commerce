@@ -30,13 +30,13 @@ class RootApp extends StatelessWidget {
             focusColor: Colors.white, 
             contentPadding: EdgeInsets.all(20),
             filled: true,
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8.0),
-              borderSide: BorderSide(style: BorderStyle.solid),
-            ),
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
-            ),
+            // enabledBorder: OutlineInputBorder(
+            //   borderRadius: BorderRadius.circular(30.0),
+            //   borderSide: BorderSide(style: BorderStyle.solid),
+            // ),
+            // border: OutlineInputBorder(
+            //   borderRadius: BorderRadius.circular(30),
+            // ),
           ),
         ),
         home: BaseScreen(),

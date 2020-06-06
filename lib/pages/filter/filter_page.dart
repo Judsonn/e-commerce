@@ -1,5 +1,6 @@
 import 'package:e_comerce/models/filter_model.dart';
 import 'package:e_comerce/pages/filter/widgets/order_by_field.dart';
+import 'package:e_comerce/pages/filter/widgets/price_range_field.dart';
 import 'package:e_comerce/pages/filter/widgets/section_title.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +40,7 @@ class _FilterPageState extends State<FilterPage> {
                   }
                 ),
                 const SectionTitle(title:"Preço(R\$)"),
+                PriceRangeField(),
                 const SectionTitle(title:"Tipo de anunciante"),
               ],
             ),

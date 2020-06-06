@@ -13,6 +13,7 @@ class _SearchDialogState extends State<SearchDialog> {
 
   _SearchDialogState(String currentSearch) :
     _controller = TextEditingController(text: currentSearch);
+
   final TextEditingController _controller;
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,9 @@ class _SearchDialogState extends State<SearchDialog> {
               textInputAction: TextInputAction.search,
               autofocus: true,
               decoration: InputDecoration(
-                // border: BorderRadius.all(10),
+                border: OutlineInputBorder(
+                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30), bottomRight: Radius.circular(30)),
+            ),
                 prefixIcon: IconButton(
                   icon: Icon(Icons.arrow_back), 
                   onPressed: (){

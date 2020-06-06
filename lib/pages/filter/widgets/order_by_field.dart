@@ -35,7 +35,7 @@ class OrderByField extends StatelessWidget {
                 ),),
               ),
             ),
-            SizedBox(width: 20,),
+            SizedBox(width: 10,),
             GestureDetector(
               onTap: (){
                 state.didChange(OrderBy.PRICE);
