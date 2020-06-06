@@ -2,6 +2,7 @@ import 'package:e_comerce/models/filter_model.dart';
 import 'package:e_comerce/pages/filter/widgets/order_by_field.dart';
 import 'package:e_comerce/pages/filter/widgets/price_range_field.dart';
 import 'package:e_comerce/pages/filter/widgets/section_title.dart';
+import 'package:e_comerce/pages/filter/widgets/vendor_type_field.dart';
 import 'package:flutter/material.dart';
 
 class FilterPage extends StatefulWidget {
@@ -42,6 +43,13 @@ class _FilterPageState extends State<FilterPage> {
                 const SectionTitle(title:"Preço(R\$)"),
                 PriceRangeField(),
                 const SectionTitle(title:"Tipo de anunciante"),
+                VendorTypeField(
+                initialValue: VENDOR_TYPE_PARTICULAR | VENDOR_TYPE_PROFISSIONAL,
+                onSaved: (v){
+
+                },
+
+                ),
               ],
             ),
           ),

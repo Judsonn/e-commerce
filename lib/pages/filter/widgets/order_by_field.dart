@@ -13,7 +13,7 @@ class OrderByField extends StatelessWidget {
     return FormField<OrderBy>(
       initialValue: initialValue,
       onSaved: onSaved,
-      builder: (state){
+      builder: (state){ 
         return Row(
           children: <Widget>[
             GestureDetector(

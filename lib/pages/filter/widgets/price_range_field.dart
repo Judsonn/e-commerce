@@ -1,4 +1,5 @@
 import 'package:brasil_fields/brasil_fields.dart';
+import 'package:e_comerce/helpers/format_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,6 +34,8 @@ class PriceRangeField extends StatelessWidget {
             },
 
             validator: (s){
+            if(s.isNotEmpty && int.tryParse(getSanitizedText(s)) == null)
+            return "Ultilize valores validos";
               return null;
             },
           ),
@@ -64,6 +67,8 @@ class PriceRangeField extends StatelessWidget {
             },
 
             validator: (s){
+            if(s.isNotEmpty && int.tryParse(getSanitizedText(s)) == null)
+              return "Ultilize valores validos";
               return null;
             },
           ),
