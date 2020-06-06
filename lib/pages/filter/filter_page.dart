@@ -1,3 +1,5 @@
+import 'package:e_comerce/models/filter_model.dart';
+import 'package:e_comerce/pages/filter/widgets/order_by_field.dart';
 import 'package:e_comerce/pages/filter/widgets/section_title.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +32,12 @@ class _FilterPageState extends State<FilterPage> {
               padding: const EdgeInsets.all(16),
               children: <Widget>[
                 const SectionTitle(title:"Ordernar por"),
+                OrderByField(
+                  initialValue: OrderBy.DATE,
+                  onSaved: (v){
+
+                  }
+                ),
                 const SectionTitle(title:"Preço(R\$)"),
                 const SectionTitle(title:"Tipo de anunciante"),
               ],
