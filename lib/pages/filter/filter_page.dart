@@ -1,4 +1,5 @@
 import 'package:e_comerce/models/filter_model.dart';
+import 'package:e_comerce/pages/filter/widgets/animated_button.dart';
 import 'package:e_comerce/pages/filter/widgets/order_by_field.dart';
 import 'package:e_comerce/pages/filter/widgets/price_range_field.dart';
 import 'package:e_comerce/pages/filter/widgets/section_title.dart';
@@ -13,6 +14,7 @@ class FilterPage extends StatefulWidget {
 class _FilterPageState extends State<FilterPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();  
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +33,7 @@ class _FilterPageState extends State<FilterPage> {
           Form(
             key: _formKey,
             child: ListView(
+              controller: _scrollController,
               padding: const EdgeInsets.all(16),
               children: <Widget>[
                 const SectionTitle(title:"Ordernar por"),
@@ -50,9 +53,16 @@ class _FilterPageState extends State<FilterPage> {
                 },
 
                 ),
+                SizedBox(height: 250,),
               ],
             ),
           ),
+          AnimatedButton(
+            scrollController: _scrollController,
+            onTap: (){
+              print('trocou !');
+            },
+          ), 
         ],
       ),
     );
