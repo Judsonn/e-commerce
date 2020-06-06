@@ -24,7 +24,7 @@ final VoidCallback onPressed;
             boxShadow: [
               BoxShadow(
                offset: Offset(0, 5),
-               color: Colors.black38,
+               color: Colors.black26,
                blurRadius: 5
               )
             ]
