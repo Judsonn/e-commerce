@@ -7,8 +7,15 @@ class CustomHeader extends StatelessWidget {
       height: 150,
       decoration: BoxDecoration(
       borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
-      // color: Theme.of(context).primaryColor,
-      border: Border.all(color: Theme.of(context).primaryColor, width: 5)
+      color: Theme.of(context).primaryColor,
+      // border: Border.all(color: Theme.of(context).primaryColor, width: 5),
+      boxShadow: [
+        BoxShadow(
+          offset: Offset(0, 10),
+          color: Colors.black38,
+          blurRadius: 10
+        )
+      ]
       ),
 
     child: Column(

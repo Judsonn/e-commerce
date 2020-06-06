@@ -38,6 +38,7 @@ void didChangeDependencies() {
     
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         backgroundColor: Theme.of(context).primaryColor,
        title: StreamBuilder<String>(
         stream: _homeBloc.outSearch,

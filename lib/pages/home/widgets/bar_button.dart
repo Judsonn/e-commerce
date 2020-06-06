@@ -13,14 +13,24 @@ final VoidCallback onPressed;
         onTap: onPressed,
 
         child: Container(
-          height: 60,
+          height: 50,
           alignment: Alignment.center,
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
-          border: Border.all(color: Theme.of(context).primaryColor, width: 1)
-          ),
 
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.only(bottomRight: Radius.circular(30), bottomLeft: Radius.circular(30)),
+            border: Border.all(color: Theme.of(context).primaryColor, width: 2),
+            boxShadow: [
+              BoxShadow(
+               offset: Offset(0, 5),
+               color: Colors.black38,
+               blurRadius: 5
+              )
+            ]
+            
+          ),
+          
           child: Text(
             label,
             overflow: TextOverflow.ellipsis,

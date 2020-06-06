@@ -12,6 +12,7 @@ class TopBar extends StatelessWidget {
             
           },
         ),
+        
         BarButton(
           label: "Filtros",
           onPressed: (){
