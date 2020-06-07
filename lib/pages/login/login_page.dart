@@ -65,6 +65,8 @@ final ScrollController _scrollController = ScrollController();
 
                 SizedBox(height: 30,),
                 StreamBuilder<FieldState>(
+                  stream: _loginBloc.outEmail,
+                  initialData: FieldState(),
                   builder:(context, snapshot){
                     return  TextField(
                       keyboardType: TextInputType.emailAddress,
@@ -88,6 +90,8 @@ final ScrollController _scrollController = ScrollController();
 
                 SizedBox(height: 10,),
                 StreamBuilder<FieldState>(
+                  stream: _loginBloc.outPassword,
+                  initialData: FieldState(),
                   builder: (context, snapshot){
                   return TextField(
                     obscureText: true,
