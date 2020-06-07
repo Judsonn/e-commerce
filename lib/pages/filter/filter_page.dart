@@ -14,11 +14,20 @@ class FilterPage extends StatefulWidget {
 class _FilterPageState extends State<FilterPage> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>(); 
   final ScrollController _scrollController = ScrollController();  
+  Filter _filter = Filter(
+    minPrice: 10,
+    maxPrice: 100,
+    vendorType: VENDOR_TYPE_PARTICULAR,
+    orderBy: OrderBy.DATE
+  );
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         elevation: 0,
         title: const Text("Filtrar Buscas", style: TextStyle(
@@ -38,18 +47,20 @@ class _FilterPageState extends State<FilterPage> {
               children: <Widget>[
                 const SectionTitle(title:"Ordernar por"),
                 OrderByField(
-                  initialValue: OrderBy.DATE,
+                  initialValue: _filter.orderBy,
                   onSaved: (v){
-
+                    _filter.orderBy = v;
                   }
                 ),
                 const SectionTitle(title:"Preço(R\$)"),
-                PriceRangeField(),
+                PriceRangeField(
+                  filter: _filter,
+                ),
                 const SectionTitle(title:"Tipo de anunciante"),
                 VendorTypeField(
-                initialValue: VENDOR_TYPE_PARTICULAR | VENDOR_TYPE_PROFISSIONAL,
+                initialValue: _filter.vendorType,
                 onSaved: (v){
-
+                  _filter.vendorType = v;
                 },
 
                 ),
@@ -60,7 +71,23 @@ class _FilterPageState extends State<FilterPage> {
           AnimatedButton(
             scrollController: _scrollController,
             onTap: (){
-              print('trocou !');
+              //checando os validadores e salvando
+              if(_formKey.currentState.validate()){
+                _formKey.currentState.save();
+
+                if(_filter.minPrice != null && _filter.maxPrice != null ){
+                  if(_filter.minPrice > _filter.maxPrice){
+                    _scaffoldKey.currentState.showSnackBar(
+                      SnackBar(
+                        content: Text("Faixa de preço invalida"),
+                        backgroundColor: Colors.black45,
+                      )
+                    );
+                    return;
+                  }
+                }
+                //Salvar tudo e pesquisar anúncios
+              }
             },
           ), 
         ],

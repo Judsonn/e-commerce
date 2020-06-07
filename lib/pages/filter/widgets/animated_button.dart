@@ -24,7 +24,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
     super.initState();
     _controller = AnimationController(vsync: this, 
       duration: Duration(
-      seconds: 200,
+      milliseconds: 200,
       
       ));
 
@@ -42,7 +42,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
   }
   
   void positionChanged(){
-    if(scrollController.offset > 0.98 * scrollController.position.maxScrollExtent){
+    if(scrollController.offset > 0.90 * scrollController.position.maxScrollExtent){
     _controller.forward();
 
     } else{

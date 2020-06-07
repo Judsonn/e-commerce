@@ -1,9 +1,15 @@
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:e_comerce/helpers/format_field.dart';
+import 'package:e_comerce/models/filter_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class PriceRangeField extends StatelessWidget {
+
+  const PriceRangeField({ this.filter});
+  final Filter filter;
+  
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -28,9 +34,13 @@ class PriceRangeField extends StatelessWidget {
               RealInputFormatter(centavos: false),
             ],
 
-            initialValue: null,
+            initialValue: filter.minPrice?.toString(),
             onSaved: (s){
+              if(s.isEmpty)
+              filter.minPrice = null;
 
+              else
+                filter.minPrice = int.tryParse(getSanitizedText(s));
             },
 
             validator: (s){
@@ -61,9 +71,13 @@ class PriceRangeField extends StatelessWidget {
               RealInputFormatter(centavos: false),
             ],
 
-            initialValue: null,
+            initialValue: filter.maxPrice.toString(),
             onSaved: (s){
+              if(s.isEmpty)
+              filter.maxPrice = null;
 
+              else
+                filter.maxPrice = int.tryParse(getSanitizedText(s));
             },
 
             validator: (s){
