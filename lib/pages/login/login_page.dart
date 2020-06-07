@@ -1,4 +1,6 @@
 import 'package:e_comerce/pages/home/home_page.dart';
+import 'package:e_comerce/bloc/login/field_state.dart';
+import 'package:e_comerce/bloc/login/login_bloc.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,6 +11,7 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
 
+LoginBloc _loginBloc = LoginBloc();
 final ScrollController _scrollController = ScrollController();  
 
 
@@ -29,7 +32,7 @@ final ScrollController _scrollController = ScrollController();
               // mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                  Padding(
-                   padding: const EdgeInsets.only(top: 60, bottom: 20),
+                   padding: const EdgeInsets.only(top: 20, bottom: 15),
                    child: Container(
                     width: 150,
                     height: 150,
@@ -60,8 +63,8 @@ final ScrollController _scrollController = ScrollController();
                   fontSize: 15
                 )),
 
-                SizedBox(height: 40,),
-                StreamBuilder(
+                SizedBox(height: 30,),
+                StreamBuilder<FieldState>(
                   builder:(context, snapshot){
                     return  TextField(
                       keyboardType: TextInputType.emailAddress,
@@ -75,14 +78,16 @@ final ScrollController _scrollController = ScrollController();
                       border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30.0),
                       ),
+                      errorText: snapshot.data.error,
                       ),
-                  
+                      onChanged: _loginBloc.changeEmail,
+                      enabled: snapshot.data.enabled, 
                     );
                   } ,
                 ),
 
                 SizedBox(height: 10,),
-                StreamBuilder(
+                StreamBuilder<FieldState>(
                   builder: (context, snapshot){
                   return TextField(
                     obscureText: true,
@@ -96,8 +101,10 @@ final ScrollController _scrollController = ScrollController();
                     border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
                     ),
+                    errorText: snapshot.data.error,
                     ),
-                 
+                     onChanged: _loginBloc.changePassword,
+                    enabled: snapshot.data.enabled, 
                   );
                 }),
                 SizedBox(height: 10,),
