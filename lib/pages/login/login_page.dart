@@ -1,6 +1,7 @@
 import 'package:e_comerce/pages/home/home_page.dart';
 import 'package:e_comerce/bloc/login/field_state.dart';
 import 'package:e_comerce/bloc/login/login_bloc.dart';
+import 'package:e_comerce/pages/login/widgets/login_button.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -64,6 +65,7 @@ final ScrollController _scrollController = ScrollController();
                 )),
 
                 SizedBox(height: 30,),
+
                 StreamBuilder<FieldState>(
                   stream: _loginBloc.outEmail,
                   initialData: FieldState(),
@@ -89,6 +91,7 @@ final ScrollController _scrollController = ScrollController();
                 ),
 
                 SizedBox(height: 10,),
+                
                 StreamBuilder<FieldState>(
                   stream: _loginBloc.outPassword,
                   initialData: FieldState(),
@@ -124,25 +127,7 @@ final ScrollController _scrollController = ScrollController();
 
                 SizedBox(height: 40),
 
-                GestureDetector(
-                  onTap: () => Navigator.push(context, MaterialPageRoute(
-                    builder: (context) => HomePage(),
-                  )),
-                  child: Container(
-                    width: 350,
-                    height: 50,
-                    decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
-                      borderRadius: BorderRadius.circular(10)
-                    ),
-                    child: Center(
-                      child: Text("LOGIN", style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20
-                      )),
-                    ),
-                  ),
-                ),
+                LoginButton(),
 
                 SizedBox(height:40),
 
