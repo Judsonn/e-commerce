@@ -9,16 +9,20 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
 
+final ScrollController _scrollController = ScrollController();  
+
 
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
        return Scaffold(
+        
         body: SingleChildScrollView(
-      child: Center(
-        child: Container(
-          height: size.height,
-          width: size.width,
-          child: Padding(
+        controller: _scrollController,
+        child: Center(
+          child: Container(
+            height: size.height,
+            width: size.width,
+            child: Padding(
             padding: const EdgeInsets.all(36.0),
             child: Column(
               // crossAxisAlignment: CrossAxisAlignment.center,
@@ -57,38 +61,45 @@ class _LoginPageState extends State<LoginPage> {
                 )),
 
                 SizedBox(height: 40,),
-
-                TextField(
-                decoration: InputDecoration(
-                  labelText: 'email', 
-                  prefixIcon: Icon(Icons.email,  color: Theme.of(context).primaryColor,),
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(style: BorderStyle.solid, color: Theme.of(context).primaryColor, width: 1),
-                  ),
-                  border: OutlineInputBorder(
-                   borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
+                StreamBuilder(
+                  builder:(context, snapshot){
+                    return  TextField(
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                      labelText: 'email', 
+                      prefixIcon: Icon(Icons.email,  color: Theme.of(context).primaryColor,),
+                      enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      borderSide: BorderSide(style: BorderStyle.solid, color: Theme.of(context).primaryColor, width: 1),
+                      ),
+                      border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      ),
                   
+                    );
+                  } ,
                 ),
 
                 SizedBox(height: 10,),
-
-                TextField(
-                  decoration: InputDecoration(
-                  labelText: 'senha', 
-                  prefixIcon: Icon(Icons.lock_outline,  color: Theme.of(context).primaryColor,),
-                  enabledBorder: OutlineInputBorder(
+                StreamBuilder(
+                  builder: (context, snapshot){
+                  return TextField(
+                    obscureText: true,
+                    decoration: InputDecoration(
+                    labelText: 'senha', 
+                    prefixIcon: Icon(Icons.lock_outline,  color: Theme.of(context).primaryColor,),
+                    enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(30.0),
                     borderSide: BorderSide(style: BorderStyle.solid, color: Theme.of(context).primaryColor, width: 1),
-                  ),
-                  border: OutlineInputBorder(
-                   borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
+                    ),
+                    border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                    ),
+                    ),
                  
-                ),
+                  );
+                }),
                 SizedBox(height: 10,),
 
                 Align(
