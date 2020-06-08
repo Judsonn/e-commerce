@@ -32,7 +32,9 @@ final PageController  _pageController =  PageController();
 
       _drawerSubscription?.cancel();
       _drawerSubscription =  _drawerBloc.outPage.listen((page) {
+        try{
         _pageController.jumpToPage(page);
+        }catch(e){}
        });
     }
    
