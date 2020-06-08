@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:e_comerce/bloc/drawer_bloc.dart';
+import 'package:e_comerce/pages/adverts/adverts_page.dart';
 import 'package:e_comerce/pages/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -53,9 +54,7 @@ final PageController  _pageController =  PageController();
         physics: const NeverScrollableScrollPhysics(), // bloqueia o scrool para os lados 
         children: <Widget>[
           HomePage(),
-          Container(
-            color: Colors.blue,
-          ),
+          AdvertsPage(),
           Container(
             color: Colors.red,
           ),
