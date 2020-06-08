@@ -34,18 +34,18 @@ class _LoginPageState extends State<LoginPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 20, bottom: 15),
                   child: Container(
-                    width: 150,
-                    height: 150,
+                    width: 110,
+                    height: 110,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(100),
                       border: Border.all(
-                          color: Theme.of(context).primaryColor, width: 2),
+                          color: Theme.of(context).primaryColor, width: 1),
                     ),
                     child: Center(
                       child: Icon(
                         Icons.account_circle,
-                        color: Colors.grey[300],
-                        size: 150,
+                        color: Colors.black45,
+                        size: 100,
                       ),
                     ),
                   ),
@@ -130,13 +130,13 @@ class _LoginPageState extends State<LoginPage> {
                       style: TextStyle(
                           color: Theme.of(context).primaryColor, fontSize: 15)),
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
                 LoginButton(_loginBloc),
                 SizedBox(height: 10),
                 FacebookButton(
                   loginBloc: _loginBloc,
                 ),
-                SizedBox(height: 40),
+                SizedBox(height: 30),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[

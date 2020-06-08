@@ -3,8 +3,6 @@ import 'package:e_comerce/pages/register/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
-
-  
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -71,12 +69,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   hintText: 'Exemplo: joaosilva@gmail.com'),
               validator: (text) {
                 if (text.length < 6 || text.contains('@'))
-                 return 'E-mail invalido';
-                 return null;
+                  return 'E-mail invalido';
+                return null;
               },
-              onSaved: (text){
-
-              },
+              onSaved: (text) {},
             ),
             SizedBox(
               height: 26,
@@ -85,14 +81,36 @@ class _RegisterPageState extends State<RegisterPage> {
               title: "Senha",
               subTitle: "Use letras, números e caracteres especiais  ",
             ),
-           PasswordField(
-             onSaved: (text){
-               
-             },
-           ),
+            PasswordField(
+              onSaved: (text) {},
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(vertical: 24),
+              height: 50,
+              child: RaisedButton(
+                color: Theme.of(context).primaryColor,
+                disabledColor: Colors.green[100],
+                child: Text("Cadastre-se",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16
+                ),
+                ),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)
+                ), onPressed: _signUp,
+              ),
+            )
           ],
         ),
       ),
     );
+  }
+
+  void _signUp(){
+    if(_formKey.currentState.validate()){
+      _formKey.currentState.save();
+    }
   }
 }
