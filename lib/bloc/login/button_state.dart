@@ -2,5 +2,5 @@ class ButtonState{
   bool enabled;
   bool loading;
 
-  ButtonState(this.enabled, this.loading);
+  ButtonState({this.enabled, this.loading});
 }

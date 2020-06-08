@@ -127,7 +127,7 @@ final ScrollController _scrollController = ScrollController();
 
                 SizedBox(height: 40),
 
-                LoginButton(),
+                LoginButton(_loginBloc),
 
                 SizedBox(height:40),
 
