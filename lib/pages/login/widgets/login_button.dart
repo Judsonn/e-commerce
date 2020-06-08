@@ -11,7 +11,7 @@ final LoginBloc loginBloc;
   Widget build(BuildContext context) {
     return Container(
         height: 50,
-        width: 350,
+        width: 370,
         child: StreamBuilder<ButtonState>(
           stream: loginBloc.outLoginButton,
           initialData: ButtonState(enabled: false, loading: false),
@@ -21,8 +21,10 @@ final LoginBloc loginBloc;
             disabledColor: Colors.green[100],
             shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(30)
-            ), onPressed: snapshot.data.enabled? (){
-              loginBloc.loginwithEmail();
+            ), onPressed: snapshot.data.enabled? () async {
+              final bool succes = await loginBloc.loginwithEmail();
+              if(succes)
+              Navigator.of(context).pop();
             }:null,
             child: snapshot.data.loading? 
             CircularProgressIndicator(
@@ -31,7 +33,7 @@ final LoginBloc loginBloc;
             :
             Text("Entrar",
             style: TextStyle(
-              fontWeight: FontWeight.bold, 
+              fontWeight: FontWeight.w600, 
               fontSize: 18,
               color: Colors.white
             ),

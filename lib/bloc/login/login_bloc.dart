@@ -35,12 +35,22 @@ Stream<ButtonState> get outLoginButton => Rx.combineLatest3(outEmail, outPasswor
   );  
 });
 
-  void loginwithEmail() async {
-  _stateController.add(LoginBlocState(LoginState.LOADING));
+  Future<bool> loginwithEmail() async {
+    _stateController.add(LoginBlocState(LoginState.LOADING));
 
-  await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 3));
 
   _stateController.add(LoginBlocState(LoginState.DONE));
+    return true;
+}
+
+  Future<bool> loginwithFacebook() async {
+    _stateController.add(LoginBlocState(LoginState.LOADING_FACE));
+
+    await Future.delayed(Duration(seconds: 3));
+
+    _stateController.add(LoginBlocState(LoginState.DONE));
+    return true;
 }
 
   void dispose(){

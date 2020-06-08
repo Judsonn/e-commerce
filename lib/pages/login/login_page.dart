@@ -1,6 +1,7 @@
 import 'package:e_comerce/pages/home/home_page.dart';
 import 'package:e_comerce/bloc/login/field_state.dart';
 import 'package:e_comerce/bloc/login/login_bloc.dart';
+import 'package:e_comerce/pages/login/widgets/facebook_button.dart';
 import 'package:e_comerce/pages/login/widgets/login_button.dart';
 import 'package:flutter/material.dart';
 
@@ -129,6 +130,12 @@ final ScrollController _scrollController = ScrollController();
 
                 LoginButton(_loginBloc),
 
+                SizedBox(height:10),
+
+                FacebookButton(loginBloc: _loginBloc,),
+
+
+
                 SizedBox(height:40),
 
                 Row(
@@ -136,9 +143,11 @@ final ScrollController _scrollController = ScrollController();
                     children:<Widget>[
                       Text("Ainda não possui uma conta?"),
                       SizedBox(width: 5,),
-                      Text("Crie uma conta", style: TextStyle(
-                        color: Theme.of(context).primaryColor,
-                      ))
+                      GestureDetector(
+                        child: Text("Crie uma conta", style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                        )),
+                      )
                     ]
                   ),
                 ],
