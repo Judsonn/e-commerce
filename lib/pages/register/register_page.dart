@@ -1,4 +1,5 @@
 import 'package:e_comerce/pages/register/widgets/field_title.dart';
+import 'package:e_comerce/pages/register/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -47,7 +48,7 @@ class _RegisterPageState extends State<RegisterPage> {
               },
             ),
             SizedBox(
-              height: 15,
+              height: 26,
             ),
             const FieldTitle(
               title: "Email",
@@ -73,26 +74,13 @@ class _RegisterPageState extends State<RegisterPage> {
               },
             ),
             SizedBox(
-              height: 15,
+              height: 26,
             ),
             const FieldTitle(
               title: "Senha",
-              subTitle: "Use letras, número e caracteres especi ais  ",
+              subTitle: "Use letras, númer o e caracteres especi ais  ",
             ),
-            TextFormField(
-              decoration: InputDecoration(
-                  enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(
-                        style: BorderStyle.solid,
-                        color: Theme.of(context).primaryColor,
-                        width: 1),
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                  hintText: ''),
-            ),
+           PasswordField(),
           ],
         ),
       ),
