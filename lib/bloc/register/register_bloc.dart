@@ -1,3 +1,4 @@
+import 'package:e_comerce/models/register_model.dart';
 import 'package:rxdart/rxdart.dart';
 
 enum RegisterState { IDLE, LOADING, ERROR }
@@ -16,7 +17,27 @@ class RegisterBloc {
 
   Stream<SignUpBlocState> get outState => _stateController.stream; 
 
+  RegisterModel register = RegisterModel();
+
+  void SignUp() async {
+  _stateController.add(SignUpBlocState(RegisterState.LOADING));
+
+    await Future.delayed(Duration(seconds: 3));
+  _stateController.add(SignUpBlocState(RegisterState.IDLE));
+  }
+
+  void setName(String name){
+    register.name = name;
+  }
+  void setEmail(String email){
+    register.email = email.toLowerCase();
+  }
+  void setPassword(String password){
+    register.password = password;
+  }
+
   void dispose() {
     _stateController.close();
+    
   }
 }
