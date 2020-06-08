@@ -1,6 +1,7 @@
 import 'package:e_comerce/bloc/drawer_bloc.dart';
 import 'package:e_comerce/bloc/home_page_bloc.dart';
-import 'package:e_comerce/pages/base/base_screen.dart';
+import 'package:e_comerce/pages/base/base_page.dart';
+import 'package:e_comerce/pages/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
