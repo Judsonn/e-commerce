@@ -3,6 +3,8 @@ import 'package:e_comerce/pages/register/widgets/password_field.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
+
+  
   @override
   _RegisterPageState createState() => _RegisterPageState();
 }
@@ -72,15 +74,22 @@ class _RegisterPageState extends State<RegisterPage> {
                  return 'E-mail invalido';
                  return null;
               },
+              onSaved: (text){
+
+              },
             ),
             SizedBox(
               height: 26,
             ),
             const FieldTitle(
               title: "Senha",
-              subTitle: "Use letras, númer o e caracteres especi ais  ",
+              subTitle: "Use letras, números e caracteres especiais  ",
             ),
-           PasswordField(),
+           PasswordField(
+             onSaved: (text){
+               
+             },
+           ),
           ],
         ),
       ),
