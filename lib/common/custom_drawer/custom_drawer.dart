@@ -9,13 +9,13 @@ class CustomDrawer extends StatelessWidget {
     return Drawer(
       child: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-            Theme.of(context).primaryColor,
-            Colors.green[50],            
-          ])
+          // gradient: LinearGradient(
+          //   begin: Alignment.topCenter,
+          //   end: Alignment.bottomCenter,
+          //   colors: [
+          //   Theme.of(context).primaryColor,
+          //   Colors.green[50],            
+          // ])
         ),
         child: ListView(
           children: <Widget>[

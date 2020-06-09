@@ -15,13 +15,13 @@ class IconTile extends StatelessWidget {
       label, 
       style: TextStyle(
         //fala implementar
-        color: Colors.white,
+        color: Colors.black45,
         letterSpacing: 0.8,
       ),
       ),
       leading: Icon(
       iconData,
-      color: highlighted ? Colors.black45 : Colors.white,
+      color: highlighted ? Colors.green[200] : Colors.black45,
 
       ),
       onTap: onTap,
